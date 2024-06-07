@@ -9,6 +9,27 @@
     <script nomodule src="/build/is-web-components.js"></script>
   </head>
   <body>
-    <my-component first="Stencil" last="'Don't call me a framework' JS"></my-component>
+    <is-accordion collapsible="true" multiple="false" icon="plus" speed="1000">
+      <is-accordion-item index="0">
+        <h3 style="margin: 0" slot="trigger">Accordion Item 1</h3>
+        <div slot="icon">Custom Icon</div>
+        <p style="margin: 0" slot="content">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime optio doloribus, alias esse corrupti quisquam? Nesciunt quae nostrum repellat illum doloribus accusamus
+          nulla sequi aspernatur asperiores doloremque, earum tenetur hic.
+        </p>
+      </is-accordion-item>
+      <is-accordion-item index="1">
+        <h3 style="margin: 0" slot="trigger">Accordion Item 2</h3>
+        <p style="margin: 0" slot="content">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime optio doloribus, alias esse corrupti quisquam? Nesciunt quae nostrum.
+        </p>
+      </is-accordion-item>
+      <is-accordion-item index="2">
+        <h3 style="margin: 0" slot="trigger">Accordion Item 3</h3>
+        <p style="margin: 0" slot="content">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime optio doloribus, alias esse corrupti quisquam? Nesciunt quae nostrum.
+        </p>
+      </is-accordion-item>
+    </is-accordion>
   </body>
 </html>

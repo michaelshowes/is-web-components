@@ -1,0 +1,47 @@
+{
+  "version": 1.1,
+  "tags": [
+    {
+      "name": "is-accordion",
+      "description": {
+        "kind": "markdown",
+        "value": "The is-accordion component is a container for is-accordion-item components. It is the parent component and is responsible for managing the state of the accordion.\n```\n<is-accordion>\n <is-accordion-item index=\"0\">\n  ...content...\n </is-accordion-item>\n <is-accordion-item index=\"1\">\n  ...content...\n </is-accordion-item>\n</is-accordion>\n```"
+      },
+      "attributes": [
+        {
+          "name": "collapsible",
+          "description": "If `true`, the accordion will be collapsible."
+        },
+        {
+          "name": "icon",
+          "description": "The default icon to display in the accordion. Overide with\n```\n<is-accordion-item index=\"0\">\n  <element slot=\"icon\"></element>\n</is-accordion-item>\n```",
+          "values": [
+            {
+              "name": "arrow"
+            },
+            {
+              "name": "plus"
+            }
+          ]
+        },
+        {
+          "name": "multiple",
+          "description": "If `true`, the accordion will allow multiple open items."
+        }
+      ]
+    },
+    {
+      "name": "is-accordion-item",
+      "description": {
+        "kind": "markdown",
+        "value": "Accordion Item component\n```\n<is-accordion-item index=\"0\">\n <h3 slot=\"trigger\">Trigger</h3>\n <div slot=\"content\">Content</div>\n</is-accordion-item>\n```"
+      },
+      "attributes": [
+        {
+          "name": "index",
+          "description": "The index of the accordion item"
+        }
+      ]
+    }
+  ]
+}

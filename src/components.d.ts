@@ -6,56 +6,165 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface MyComponent {
+    /**
+     * The is-accordion component is a container for is-accordion-item components. It is the parent component and is responsible for managing the state of the accordion.
+     * ```
+     * <is-accordion>
+     *  <is-accordion-item index="0">
+     *   ...content...
+     *  </is-accordion-item>
+     *  <is-accordion-item index="1">
+     *   ...content...
+     *  </is-accordion-item>
+     * </is-accordion>
+     * ```
+     */
+    interface IsAccordion {
         /**
-          * The first name
+          * If `true`, the accordion will be collapsible.
          */
-        "first": string;
+        "collapsible": boolean;
         /**
-          * The last name
+          * The default icon to display in the accordion. Overide with ``` <is-accordion-item index="0">   <element slot="icon"></element> </is-accordion-item> ```
          */
-        "last": string;
+        "icon": 'arrow' | 'plus';
         /**
-          * The middle name
+          * If `true`, the accordion will allow multiple open items.
          */
-        "middle": string;
+        "multiple": boolean;
+    }
+    /**
+     * Accordion Item component
+     * ```
+     * <is-accordion-item index="0">
+     *  <h3 slot="trigger">Trigger</h3>
+     *  <div slot="content">Content</div>
+     * </is-accordion-item>
+     * ```
+     */
+    interface IsAccordionItem {
+        /**
+          * The index of the accordion item
+         */
+        "index": number;
     }
 }
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    /**
+     * The is-accordion component is a container for is-accordion-item components. It is the parent component and is responsible for managing the state of the accordion.
+     * ```
+     * <is-accordion>
+     *  <is-accordion-item index="0">
+     *   ...content...
+     *  </is-accordion-item>
+     *  <is-accordion-item index="1">
+     *   ...content...
+     *  </is-accordion-item>
+     * </is-accordion>
+     * ```
+     */
+    interface HTMLIsAccordionElement extends Components.IsAccordion, HTMLStencilElement {
     }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    var HTMLIsAccordionElement: {
+        prototype: HTMLIsAccordionElement;
+        new (): HTMLIsAccordionElement;
+    };
+    /**
+     * Accordion Item component
+     * ```
+     * <is-accordion-item index="0">
+     *  <h3 slot="trigger">Trigger</h3>
+     *  <div slot="content">Content</div>
+     * </is-accordion-item>
+     * ```
+     */
+    interface HTMLIsAccordionItemElement extends Components.IsAccordionItem, HTMLStencilElement {
+    }
+    var HTMLIsAccordionItemElement: {
+        prototype: HTMLIsAccordionItemElement;
+        new (): HTMLIsAccordionItemElement;
     };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
+        "is-accordion": HTMLIsAccordionElement;
+        "is-accordion-item": HTMLIsAccordionItemElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
+    /**
+     * The is-accordion component is a container for is-accordion-item components. It is the parent component and is responsible for managing the state of the accordion.
+     * ```
+     * <is-accordion>
+     *  <is-accordion-item index="0">
+     *   ...content...
+     *  </is-accordion-item>
+     *  <is-accordion-item index="1">
+     *   ...content...
+     *  </is-accordion-item>
+     * </is-accordion>
+     * ```
+     */
+    interface IsAccordion {
         /**
-          * The first name
+          * If `true`, the accordion will be collapsible.
          */
-        "first"?: string;
+        "collapsible"?: boolean;
         /**
-          * The last name
+          * The default icon to display in the accordion. Overide with ``` <is-accordion-item index="0">   <element slot="icon"></element> </is-accordion-item> ```
          */
-        "last"?: string;
+        "icon"?: 'arrow' | 'plus';
         /**
-          * The middle name
+          * If `true`, the accordion will allow multiple open items.
          */
-        "middle"?: string;
+        "multiple"?: boolean;
+    }
+    /**
+     * Accordion Item component
+     * ```
+     * <is-accordion-item index="0">
+     *  <h3 slot="trigger">Trigger</h3>
+     *  <div slot="content">Content</div>
+     * </is-accordion-item>
+     * ```
+     */
+    interface IsAccordionItem {
+        /**
+          * The index of the accordion item
+         */
+        "index": number;
     }
     interface IntrinsicElements {
-        "my-component": MyComponent;
+        "is-accordion": IsAccordion;
+        "is-accordion-item": IsAccordionItem;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            /**
+             * The is-accordion component is a container for is-accordion-item components. It is the parent component and is responsible for managing the state of the accordion.
+             * ```
+             * <is-accordion>
+             *  <is-accordion-item index="0">
+             *   ...content...
+             *  </is-accordion-item>
+             *  <is-accordion-item index="1">
+             *   ...content...
+             *  </is-accordion-item>
+             * </is-accordion>
+             * ```
+             */
+            "is-accordion": LocalJSX.IsAccordion & JSXBase.HTMLAttributes<HTMLIsAccordionElement>;
+            /**
+             * Accordion Item component
+             * ```
+             * <is-accordion-item index="0">
+             *  <h3 slot="trigger">Trigger</h3>
+             *  <div slot="content">Content</div>
+             * </is-accordion-item>
+             * ```
+             */
+            "is-accordion-item": LocalJSX.IsAccordionItem & JSXBase.HTMLAttributes<HTMLIsAccordionItemElement>;
         }
     }
 }
