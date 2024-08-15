@@ -27,7 +27,7 @@ export namespace Components {
         /**
           * The default icon to display in the accordion. Overide with ``` <is-accordion-item index="0">   <element slot="icon"></element> </is-accordion-item> ```
          */
-        "icon": 'arrow' | 'plus';
+        "icon": "arrow" | "plus";
         /**
           * If `true`, the accordion will allow multiple open items.
          */
@@ -44,10 +44,18 @@ export namespace Components {
      */
     interface IsAccordionItem {
         /**
+          * The configuration object for the accordion
+         */
+        "config": any;
+        /**
           * The index of the accordion item
          */
         "index": number;
     }
+}
+export interface IsAccordionItemCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLIsAccordionItemElement;
 }
 declare global {
     /**
@@ -69,6 +77,9 @@ declare global {
         prototype: HTMLIsAccordionElement;
         new (): HTMLIsAccordionElement;
     };
+    interface HTMLIsAccordionItemElementEventMap {
+        "accordionItemClicked": any;
+    }
     /**
      * Accordion Item component
      * ```
@@ -79,6 +90,14 @@ declare global {
      * ```
      */
     interface HTMLIsAccordionItemElement extends Components.IsAccordionItem, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIsAccordionItemElementEventMap>(type: K, listener: (this: HTMLIsAccordionItemElement, ev: IsAccordionItemCustomEvent<HTMLIsAccordionItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIsAccordionItemElementEventMap>(type: K, listener: (this: HTMLIsAccordionItemElement, ev: IsAccordionItemCustomEvent<HTMLIsAccordionItemElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLIsAccordionItemElement: {
         prototype: HTMLIsAccordionItemElement;
@@ -111,7 +130,7 @@ declare namespace LocalJSX {
         /**
           * The default icon to display in the accordion. Overide with ``` <is-accordion-item index="0">   <element slot="icon"></element> </is-accordion-item> ```
          */
-        "icon"?: 'arrow' | 'plus';
+        "icon"?: "arrow" | "plus";
         /**
           * If `true`, the accordion will allow multiple open items.
          */
@@ -128,9 +147,14 @@ declare namespace LocalJSX {
      */
     interface IsAccordionItem {
         /**
+          * The configuration object for the accordion
+         */
+        "config"?: any;
+        /**
           * The index of the accordion item
          */
         "index": number;
+        "onAccordionItemClicked"?: (event: IsAccordionItemCustomEvent<any>) => void;
     }
     interface IntrinsicElements {
         "is-accordion": IsAccordion;

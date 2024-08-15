@@ -1,5 +1,6 @@
 import { Config } from '@stencil/core';
 import tailwind, { tailwindHMR } from 'stencil-tailwind-plugin';
+import { sass } from '@stencil/sass';
 
 export const config: Config = {
   namespace: 'is-web-components',
@@ -28,5 +29,11 @@ export const config: Config = {
   testing: {
     browserHeadless: 'new',
   },
-  plugins: [tailwind(), tailwindHMR()],
+  devServer: {
+    openBrowser: false,
+  },
+  extras: {
+    enableImportInjection: true,
+  },
+  plugins: [tailwind(), tailwindHMR(), sass()],
 };

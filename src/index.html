@@ -1,33 +1,68 @@
-<!DOCTYPE html>
+<!doctype html>
 <html dir="ltr" lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
     <title>Stencil Component Starter</title>
 
     <script type="module" src="/build/is-web-components.esm.js"></script>
     <script nomodule src="/build/is-web-components.js"></script>
+    <script src="../src/index.js"></script>
   </head>
   <body>
-    <is-accordion collapsible="true" multiple="false" icon="plus" speed="1000">
+    <is-accordion collapsible="true" multiple="false" icon="plus">
       <is-accordion-item index="0">
         <h3 style="margin: 0" slot="trigger">Accordion Item 1</h3>
         <div slot="icon">Custom Icon</div>
         <p style="margin: 0" slot="content">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime optio doloribus, alias esse corrupti quisquam? Nesciunt quae nostrum repellat illum doloribus accusamus
-          nulla sequi aspernatur asperiores doloremque, earum tenetur hic.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime optio
+          doloribus, alias esse corrupti quisquam? Nesciunt quae nostrum
+          repellat illum doloribus accusamus nulla sequi aspernatur asperiores
+          doloremque, earum tenetur hic.
         </p>
       </is-accordion-item>
       <is-accordion-item index="1">
         <h3 style="margin: 0" slot="trigger">Accordion Item 2</h3>
         <p style="margin: 0" slot="content">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime optio doloribus, alias esse corrupti quisquam? Nesciunt quae nostrum.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime optio
+          doloribus, alias esse corrupti quisquam? Nesciunt quae nostrum.
         </p>
       </is-accordion-item>
       <is-accordion-item index="2">
         <h3 style="margin: 0" slot="trigger">Accordion Item 3</h3>
         <p style="margin: 0" slot="content">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime optio doloribus, alias esse corrupti quisquam? Nesciunt quae nostrum.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime optio
+          doloribus, alias esse corrupti quisquam? Nesciunt quae nostrum.
+        </p>
+      </is-accordion-item>
+    </is-accordion>
+
+    <is-accordion collapsible="true" multiple="false" icon="plus">
+      <is-accordion-item index="0">
+        <h3 style="margin: 0" slot="trigger">Accordion Item 1</h3>
+        <div slot="icon">Custom Icon</div>
+        <p style="margin: 0" slot="content">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime optio
+          doloribus, alias esse corrupti quisquam? Nesciunt quae nostrum
+          repellat illum doloribus accusamus nulla sequi aspernatur asperiores
+          doloremque, earum tenetur hic.
+        </p>
+      </is-accordion-item>
+      <is-accordion-item index="1">
+        <h3 style="margin: 0" slot="trigger">Accordion Item 2</h3>
+        <p style="margin: 0" slot="content">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime optio
+          doloribus, alias esse corrupti quisquam? Nesciunt quae nostrum.
+        </p>
+      </is-accordion-item>
+      <is-accordion-item index="2">
+        <h3 style="margin: 0" slot="trigger">Accordion Item 3</h3>
+        <p style="margin: 0" slot="content">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime optio
+          doloribus, alias esse corrupti quisquam? Nesciunt quae nostrum.
         </p>
       </is-accordion-item>
     </is-accordion>

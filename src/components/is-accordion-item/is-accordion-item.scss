@@ -1,0 +1,36 @@
+:host {
+  display: block;
+
+  &[data-state="open"] .is-accordion-trigger-icon {
+    transform: rotate(180deg);
+  }
+
+  &[data-state="open"] .is-accordion-content {
+    grid-template-rows: 1fr;
+    opacity: 1;
+  }
+}
+
+.is-accordion-trigger {
+  width: 100%;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+}
+
+.is-accordion-trigger-icon {
+  transition: transform 0.3s ease-in-out;
+  transform: rotate(0deg);
+}
+
+.is-accordion-content {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.is-accordion-content-overflow {
+  overflow: hidden;
+}
