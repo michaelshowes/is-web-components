@@ -129,7 +129,7 @@ export class MsAccordion {
         class={`is-accordion is-accordion-${this.accordionId}`}
         id={`is-accordion-${this.accordionId}`}
       >
-        <slot name="item"></slot>
+        <slot name="item" />
       </Host>
     );
   }

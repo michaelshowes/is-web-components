@@ -38,6 +38,10 @@
       },
       "attributes": [
         {
+          "name": "config",
+          "description": "The configuration object for the accordion"
+        },
+        {
           "name": "index",
           "description": "The index of the accordion item"
         }

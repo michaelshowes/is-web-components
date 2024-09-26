@@ -3,8 +3,8 @@ import {
   Event,
   EventEmitter,
   Host,
+  Method,
   Prop,
-  State,
   h,
 } from "@stencil/core";
 import { randomString } from "../../utils/utils";
@@ -32,7 +32,7 @@ export class MsAccordionItem {
   })
   accordionItemClicked: EventEmitter;
 
-  handleEvent(e) {
+  @Method() async handleEvent(e: string) {
     this.accordionItemClicked.emit(e);
   }
 
@@ -45,15 +45,18 @@ export class MsAccordionItem {
    * The index of the accordion item
    */
   @Prop() index!: number;
-  /**
-   * If `true`, the accordion item will be active.
-   */
-  @State() isActive: boolean = false;
+
+  @Method() async handleClick() {
+    this.handleEvent(this.itemId);
+  }
+
+  @Method() async getIndex() {
+    return this.index;
+  }
 
   render() {
     const accordionId = this.config.accordionId;
     const itemId = this.itemId;
-    const isActive = this.isActive;
     const plusIcon = (
       <svg
         xmlns={"http://www.w3.org/2000/svg"}
@@ -90,17 +93,6 @@ export class MsAccordionItem {
         <path d={"M12 15.5l-6-6-1.41 1.41L12 18.33l7.41-7.42L18 9.5l-6 6z"} />
       </svg>
     );
-    const defaultIcon = () => {
-      if (this.config.icon === "plus") {
-        if (isActive) {
-          return minusIcon;
-        } else {
-          return plusIcon;
-        }
-      } else {
-        return arrowIcon;
-      }
-    };
 
     return (
       <Host
@@ -118,7 +110,22 @@ export class MsAccordionItem {
         >
           <slot name="trigger"></slot>
           <div class="is-accordion-trigger-icon">
-            <slot name="icon">{defaultIcon()}</slot>
+            <div>
+              <slot name="icon">
+                {this.config.icon === "plus" ? (
+                  <div>
+                    <div class="is-accordion-trigger-icon-closed">
+                      <slot name="icon-closed">{plusIcon}</slot>
+                    </div>
+                    <div class="is-accordion-trigger-icon-open">
+                      <slot name="icon-open">{minusIcon}</slot>
+                    </div>
+                  </div>
+                ) : (
+                  <div>{arrowIcon}</div>
+                )}
+              </slot>
+            </div>
           </div>
         </button>
 

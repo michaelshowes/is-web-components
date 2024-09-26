@@ -47,6 +47,9 @@ export namespace Components {
           * The configuration object for the accordion
          */
         "config": any;
+        "getIndex": () => Promise<number>;
+        "handleClick": () => Promise<void>;
+        "handleEvent": (e: string) => Promise<void>;
         /**
           * The index of the accordion item
          */

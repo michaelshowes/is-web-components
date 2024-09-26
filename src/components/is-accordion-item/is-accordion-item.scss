@@ -1,8 +1,16 @@
 :host {
   display: block;
 
-  &[data-state="open"] .is-accordion-trigger-icon {
-    transform: rotate(180deg);
+  &[data-state="open"] .is-accordion-trigger-icon > div {
+    transform: rotate(-180deg);
+  }
+
+  &[data-state="open"] .is-accordion-trigger-icon-closed {
+    display: none;
+  }
+
+  &[data-state="open"] .is-accordion-trigger-icon-open {
+    display: block;
   }
 
   &[data-state="open"] .is-accordion-content {
@@ -12,15 +20,20 @@
 }
 
 .is-accordion-trigger {
-  width: 100%;
-  text-align: left;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  width: 100%;
 }
 
-.is-accordion-trigger-icon {
+.is-accordion-trigger-icon > div {
   transition: transform 0.3s ease-in-out;
   transform: rotate(0deg);
+}
+
+.is-accordion-trigger-icon-open {
+  display: none;
 }
 
 .is-accordion-content {
